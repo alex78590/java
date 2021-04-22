@@ -9,6 +9,8 @@ public class Film {
 	int numEpisode;
 	int cout;
 	int recette;
+	ArrayList<Acteur> ListeActeurs = new ArrayList<Acteur>();
+	
 	
 	/**
 	 
@@ -23,12 +25,13 @@ public class Film {
 	 * @param r
 	 * represent film revenue
 	 */
-	public Film(String t, String a, int n, int c, int r) {
+	public Film(String t, String a, int n, int c, int r,ArrayList<Acteur> l) {
 		this.titre=t;
 		this.annee=a;
 		this.numEpisode=n;
 		this.cout=c;
 		this.recette=r;
+		this.ListeActeurs=l;
 		
 	}
 /**
@@ -101,12 +104,30 @@ public class Film {
 	public void setRecette(int recette) {
 		this.recette = recette;
 	}
-
-	@Override
-	public String toString() {
-		return "Film [titre=" + titre + ", annee=" + annee + ", numEpisode=" + numEpisode + ", cout=" + cout
-				+ ", recette=" + recette + "]";
+	
+/**
+* 
+* @return list actors
+*/
+	
+	public ArrayList<Acteur> getListeActeurs() {
+		return ListeActeurs;
 	}
+/**
+* 
+* @param listeActeurs
+*/
+	
+	public void setListeActeurs(ArrayList<Acteur> listeActeurs) {
+		ListeActeurs = listeActeurs;
+	}
+@Override
+public String toString() {
+	return "Film [titre=" + titre + ", annee=" + annee + ", numEpisode=" + numEpisode + ", cout=" + cout + ", recette="
+			+ recette + ", ListeActeurs=" + ListeActeurs + "]";
+}
+
+	
 	
 	
 	
