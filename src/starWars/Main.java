@@ -8,6 +8,7 @@ public class Main {
 
 	public static void main(String args[]){
 
+		/*creation de liste de film, et demande de saisie pour le 3eme, puis affichage*/
 		ArrayList<Film> films = new ArrayList<Film>();
 		Film film1 = new Film("Star Wars épisode IV : Un nouvel espoir","1977",4,50,5000,null);
 		Film film2 = new Film("Star Wars épisode V : L'Empire contre-attaque","1980",5,50,5000,null);
@@ -22,7 +23,6 @@ public class Main {
 		int coutFilm = sc.nextInt();
 		System.out.println("recette");
 		int recetteFilm = sc.nextInt();
-		sc.close();
 		Film film3 = new Film(titreFilm,anneeFilm,numEpisodeFilm,coutFilm,recetteFilm,null);
 		
 		films.add(film1);
@@ -34,6 +34,7 @@ public class Main {
 			System.out.println(f.toString());
 		}
 		
+		/*creation liste de personnage et affectation a un acteur*/
 		Vector<Personnage> persos = new Vector<Personnage>();
 		Personnage perso1 = new Personnage("yoda","le bg");
 		Personnage perso2 = new Personnage("Indiana","Jones");
@@ -42,7 +43,28 @@ public class Main {
 		persos.add(perso3);
 		Acteur acteur1 = new Acteur("harisson","ford",persos);
 		System.out.println(acteur1.toString());
+		
+		/* affiche le nombre de personnage d'un acteur*/
 		System.out.println(acteur1.nbPersonnage());
+		
+		/*creation liste d'acteur et affectation a un film*/
+		ArrayList<Acteur> acteurs = new ArrayList<Acteur>();
+		acteurs.add(acteur1);
+		film1.setListeActeurs(acteurs);
+		System.out.println(film1.toString());
+		
+		/* affiche le nombre d'acteur d'un film*/
+		System.out.println(film1.nbActeurs());
+		
+		/* affiche le nombre de personnage d'un film*/
+		System.out.println(film1.nbPersonnages());
+		
+		/* verifie si l'année entrée est supérieur a l'année du film*/
+		System.out.println("année");
+		int annee = sc.nextInt();
+		System.out.println(film1.isBefore(annee));
+		
+		sc.close();
 		
 }
 }

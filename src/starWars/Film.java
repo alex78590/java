@@ -1,6 +1,8 @@
 package starWars;
 import java.util.ArrayList;
-import starWars.Acteur;
+import java.util.Vector;
+import java.util.Scanner;
+
 
 public class Film {
 
@@ -34,6 +36,7 @@ public class Film {
 		this.ListeActeurs=l;
 		
 	}
+	
 /**
  * 
  * @return film title
@@ -127,7 +130,41 @@ public String toString() {
 			+ recette + ", ListeActeurs=" + ListeActeurs + "]";
 }
 
+	public int nbActeurs() {
+		int nbActeurs = this.ListeActeurs.size();
+		return nbActeurs;
+	}
 	
+	public int nbPersonnages() {
+		int nbPersonnages = 0;
+		for (Acteur a : this.ListeActeurs) {
+			nbPersonnages = a.duet.size();
+		}
+		return nbPersonnages;
+		
+	}
+	
+//	public Vector<>calculBenefice() {
+//		
+//		boolean isBenefit = false;
+//		int i=0;
+//		if(this.cout < this.recette) {
+//			 isBenefit = true;
+//		}
+//		int benefice = this.cout - this.recette;
+//	    
+//	}
+	
+	public boolean isBefore(int annee) {
+		boolean isBefore = false;
+		int anneeFilm = Integer.parseInt(this.annee);
+		if(annee > anneeFilm) {
+			isBefore = true;
+		}
+		return isBefore;
+	    
+		
+	}
 	
 	
 	
