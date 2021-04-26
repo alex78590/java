@@ -1,7 +1,13 @@
 package starWars;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Vector;
+import java.util.stream.Collectors;
 import java.util.Scanner;
+import java.util.List;
 
 
 public class Film {
@@ -144,16 +150,22 @@ public String toString() {
 		
 	}
 	
-//	public Vector<>calculBenefice() {
-//		
-//		boolean isBenefit = false;
-//		int i=0;
-//		if(this.cout < this.recette) {
-//			 isBenefit = true;
-//		}
-//		int benefice = this.cout - this.recette;
-//	    
-//	}
+	public ArrayList<List>calculBenefice() {
+		
+		boolean isBenefit = false;
+		if(this.cout < this.recette) {
+			 isBenefit = true;
+		}
+		int benefice = this.cout - this.recette;
+		ArrayList<List> liste = new ArrayList<List>();
+	    ArrayList<Integer>benefices = new ArrayList<Integer>();
+	    ArrayList<Boolean>isBenefices = new ArrayList<Boolean>();
+	    benefices.add(benefice);
+	    isBenefices.add(isBenefit);
+	    liste.add(benefices);
+	    liste.add(isBenefices);
+	    return liste;
+	}
 	
 	public boolean isBefore(int annee) {
 		boolean isBefore = false;
@@ -165,6 +177,36 @@ public String toString() {
 	    
 		
 	}
+	
+	
+	public ArrayList<Acteur>ActeursAlph(Film film){
+		ArrayList<Acteur>Acteurs = this.ListeActeurs;
+		Collections.sort(Acteurs);
+	}
+	
+	
+	public String makeBackup (ArrayList<Film>films){
+		String chaine = "";
+		for(Film f :films) {
+			String annee = this.annee;
+			String titre = this.titre;
+			String benefice = String.valueOf(this.recette);
+			chaine = annee+"-"+titre+"-"+benefice;
+		}
+		return chaine;
+		
+	}
+	
+	
+	public void tri(){
+        Collections.sort(ListeActeurs, new Comparator<Acteur>() {
+            public int compare(Acteur v1, Acteur v2) {
+                return v1.getNom().compareTo(v2.getNom());
+            }
+            
+        });
+    }
+	
 	
 	
 	

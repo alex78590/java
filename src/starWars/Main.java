@@ -1,10 +1,20 @@
 package starWars;
+import java.sql.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import java.util.Scanner;
 
 public class Main {
+	
+	public static void afficherBackup(HashMap<Integer,Film>dictionnaire) {
+		for (Map.Entry<Integer, Film>e:dictionnaire.entrySet()) {
+			System.out.println(e.getKey()+"-"+e.getValue()+"-"+e.getValue());
+		}
+	}
 
 	public static void main(String args[]){
 
@@ -63,6 +73,13 @@ public class Main {
 		System.out.println("année");
 		int annee = sc.nextInt();
 		System.out.println(film1.isBefore(annee));
+		
+		/* verifie si le film rapporte des benefices*/
+		System.out.println(film3.calculBenefice());
+		
+		/* retourne des infos pour une collection de film*/
+		HashMap<Integer,Film>tableau = new HashMap<>();
+		afficherBackup(tableau);
 		
 		sc.close();
 		
